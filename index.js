@@ -7,6 +7,10 @@ const PORT = 3001
 
 app.use(cors())
 
+app.get("/", async (req, res) => {
+  res.send("<h3>Visitor Counter API</h3>")
+})
+
 app.get("/api/:key", async (req, res) => {
   const value = await client.get(req.params.key)
 
