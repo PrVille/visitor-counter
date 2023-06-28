@@ -6,7 +6,7 @@ Simple visitor counter api
 
 #### Get visitors
 
-```http
+```
   GET /visitors/${key}
 ```
 
@@ -16,7 +16,7 @@ Simple visitor counter api
 
 #### Register key
 
-```http
+```
   POST /register/${key}
 ```
 
@@ -26,7 +26,7 @@ Simple visitor counter api
 
 #### Increment key
 
-```http
+```
   POST /increment/${key}
 ```
 
@@ -36,7 +36,7 @@ Simple visitor counter api
 
 #### Reset key
 
-```http
+```
   POST /reset/${key}
 ```
 
