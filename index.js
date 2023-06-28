@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
   res.send("<h3>Visitor Counter API</h3>")
 })
 
-app.get("/api/:key", async (req, res) => {
+app.get("/api/visitors/:key", async (req, res) => {
   const value = await client.get(req.params.key)
 
   if (!value) {
