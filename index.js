@@ -29,17 +29,17 @@ app.post("/api/register/:key", async (req, res) => {
   }
 
   await client.set(req.params.key, 0)
-  res.send(`Registered ${req.params.key}`)
+  res.send("0")
 })
 
 app.post("/api/increment/:key", async (req, res) => {
-  await client.incr(req.params.key)
-  res.send(`Incremented ${req.params.key}`)
+  const value = await client.incr(req.params.key)
+  res.send(value)
 })
 
 app.post("/api/reset/:key", async (req, res) => {
   await client.set(req.params.key, 0)
-  res.send(`Reset ${req.params.key} to 0`)
+  res.send("0")
 })
 
 const start = async () => {
