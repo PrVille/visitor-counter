@@ -11,17 +11,17 @@ app.get("/", async (req, res) => {
   res.send("<h3>Visitor Counter API</h3>")
 })
 
-app.get("/api/visitors/:key", async (req, res) => {
+app.get("/visitors/:key", async (req, res) => {
   const value = await client.get(req.params.key)
 
   if (!value) {
     return res.status(404).send("-1")
   }
 
-  res.send(value)
+  res.send(value.toString())
 })
 
-app.post("/api/register/:key", async (req, res) => {
+app.post("/register/:key", async (req, res) => {
   const value = await client.get(req.params.key)
 
   if (!!value) {
@@ -29,17 +29,17 @@ app.post("/api/register/:key", async (req, res) => {
   }
 
   await client.set(req.params.key, 0)
-  res.send(`Registered ${req.params.key}`)
+  res.send("0")
 })
 
-app.post("/api/increment/:key", async (req, res) => {
+app.post("/increment/:key", async (req, res) => {
   const value = await client.incr(req.params.key)
-  res.send(value)
+  res.send(value.toString())
 })
 
-app.post("/api/reset/:key", async (req, res) => {
+app.post("/reset/:key", async (req, res) => {
   await client.set(req.params.key, 0)
-  res.send(`Reset ${req.params.key} to 0`)
+  res.send("0")
 })
 
 const start = async () => {
